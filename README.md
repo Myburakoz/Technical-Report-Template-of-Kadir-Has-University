@@ -13,7 +13,7 @@ Fall 2024
 ## License
 
 This template is free to use for educational purposes.
-Commercial use, redistribution or resale is not allowed without explicit permission from the author.
+Commercial use, redistribution or resale is not allowed without explicit permission from the developer.
 
 ---
 
