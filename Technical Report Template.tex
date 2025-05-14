@@ -1,0 +1,343 @@
+\documentclass[12pt]{article} % Main text is 12pt
+\usepackage{times} % Times New Roman font
+\usepackage{lipsum} % Example Text
+\usepackage{graphicx} % For Images
+\usepackage{caption} % For Images and Tables
+\usepackage{setspace} % For setting space
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[a4paper, left = 3cm, right = 2cm, top = 3cm, bottom = 2cm]{geometry} % For margins
+\usepackage{indentfirst} % Indentation of First Paragraph
+\usepackage{fancyhdr}
+\usepackage{pdflscape}
+\usepackage{footmisc}
+\usepackage[backend = biber, style = numeric, sorting = none]{biblatex}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{etoolbox}
+\usepackage{patchcmd}
+\usepackage{comment}
+\usepackage{mfirstuc}
+\usepackage{tocloft}
+
+\addbibresource{My_References.bib}
+
+\onehalfspacing % The line spacing must be 1.5 lines.
+
+\setlength{\parindent}{1cm} % Paragraph indented by 1cm in the first line.
+\setlength{\parskip}{0pt} % No extra space  between two paragraphs.
+
+\setlist{nosep} % There is no space for list.
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{1.5cm}
+\setlength{\voffset}{-1cm}
+
+\titleformat{\section}
+            {\bfseries\fontsize{14}{16}\selectfont\centering}
+            {\thesection}
+            {1em}
+            {\MakeUppercase}
+            [\vspace{14pt}]
+
+\titleformat{\subsection}
+            {\bfseries\fontsize{12}{14}\selectfont}
+            {\thesubsection}
+            {1em}
+            {}
+            [\vspace{12pt}]
+
+\titleformat{\subsubsection}
+            {\bfseries\fontsize{12}{14}\selectfont}
+            {\thesubsubsection}
+            {1em}
+            {}
+
+\renewcommand{\appendixname}{APPENDIX \thesection:}
+
+
+\titlespacing*{\subsubsection}
+  {0pt}
+  {1\baselineskip}
+  {0pt}
+
+\newcommand{\sectionbreak}{\clearpage}
+
+\widowpenalty = 10000
+\clubpenalty = 10000
+
+\renewcommand{\footnoterule}{
+    \vspace{1em}
+    \hrule width 5cm
+    \vspace{1em}
+}
+
+\renewcommand{\footnotesize}{\fontsize{10}{12}\selectfont}
+
+\newfloat{algorithm}{htbp}{loa}
+\floatname{algorithm}{Algorithm}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{algorithm}{section}
+
+\renewcommand{\contentsname}{\hfill TABLE OF CONTENTS \hfill \vspace{12pt}}
+\renewcommand{\cftdotsep}{1} % Noktalar arası boşluk (varsayılan 4.5)
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\setlength{\cftbeforesecskip}{0pt}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{26pt}
+    
+    {\fontsize{14}{16}\selectfont \textbf{CMPE243-S01 LOGIC DESIGN}\\}
+    {\fontsize{14}{16} \selectfont \textbf{PROJECT REPORT}}\\
+    {\fontsize{14}{16} \selectfont \textbf{Project No:1}}\\
+    \vspace{2.117cm}
+    
+    
+    {\fontsize{16}{18}\selectfont \textbf{Combinational Logic Circuit Design}}\\
+    \vspace{3cm}
+    
+    
+    Submitted by:\\
+    \vspace{2cm}
+    
+    Project Supervisor:\\
+    \vspace{1.5cm}
+    
+    Project Mentors:\\
+    \vspace{4cm}
+    
+    
+    Faculty of Engineering and Natural Sciences\\
+    Kadir Has University\\
+    Fall 2024
+    
+\end{titlepage}
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{2}
+
+\tableofcontents
+\thispagestyle{empty}
+
+\section{INTRODUCTION}
+
+The general rules and guidelines given in this document describe the material to be prepared and submitted by the project teams to finish each course project conducted in the PBL course.
+
+To finish a project, each team has to accomplish three tasks: a technical report of the project, a simulation file or implemented design that presents the work done during the project, and a presentation with a product demonstration. This document sets the format to be followed in writing the technical report.  It also gives some tips to prepare your presentation.
+
+All PBL courses are conducted in English. Henceforth, all material mentioned above must be prepared and presented in English. Besides being prepared along the guidelines described in this document, every report, simulation/implementation, and presentation has to show correctness and clarity of expression. The responsibility for this clarity rests mainly upon the students. Nevertheless, the project mentors and the course instructors are expected to criticize and examine the work submitted and to encourage the students to improve their work with respect to these qualities.
+
+The next section is devoted to the format of the technical project report. Section 3 describes how to organize your technical report and gives the details for the pages that precede and follow the main body of the text. Issues related to finishing the report, such as typesetting and paper quality, are explained in the fourth section. Guidelines for preparing your presentation can be found in Sections 5 and 6, respectively. Finally, Appendix A contains examples of various pages that you have to follow strictly in formatting your report. Note that this booklet itself (except its title page) is formatted as the project reports should be. Hence, you can use it as a template to write your technical report. Also, you can consult your project mentors and/or course instructor for any points which are not explained below.
+
+\section{METHODOLOGY}
+
+\subsection{Character Fonts}
+
+Throughout the whole technical report, Times or Times New Roman fonts must be used. Font size must be 12 points in the text. In tables or figures, the font size might be reduced, if necessary, but they should not be less than 8 points. The footnotes must be typeset in 10 points. The font sizes of the headings are defined in Section 2.5.
+
+\subsection{Spacing and Paragraphs}
+
+The line spacing in the text must be 1.5 lines. In any case, the line spacing is multiples of this spacing. For example, to put an extra space after a section heading, you have to press $<$RETURN$>$ twice, which means that the vertical space between a heading and the following text will be 3 line spacing. Footnotes and extensive quotations are exceptions and must be typeset in single-line spacing.
+
+Paragraphs must be indented by 1 cm in the first line. No extra space should be put between two successive paragraphs. Paragraphs that have to be arranged in a list must appear as a bulleted (•) list or a list enumerated by small-case Roman numbers such as i), ii), iii), etc. No extra space is needed before and after such lists.
+
+\subsection{Page Margins}
+
+The page margins must be set to the following values:
+
+\begin{itemize}[leftmargin=1.4cm]
+    \item Left margin: 3 cm from the edge of the paper
+    \item Right margin: 2 cm from the edge of the paper
+    \item Top margin: 3 cm from the edge of the paper
+    \item Bottom margin: 2 cm from the edge of the paper
+\end{itemize}
+
+\setlength{\parindent}{0cm}
+
+Note that all figures, drawings, tables, etc., must obey these margins as well as the text. Folded pages in a report can be accepted only if there is absolutely no way of reproducing the presented material in normal page size.
+
+\setlength{\parindent}{1cm}
+
+\subsection{Pagination}
+
+All pages except the title page must bear a number. The title page is counted as Page 1, but the number is not printed. The following pages will be numbered starting from Page 2. Only one side of the paper can be used.
+
+The page numbers must be typeset in Arabic numbers on the upper right corner of the page, 2 cm from the top of the page and 2 cm from the right edge of the page. All pages, including those where there are only figures or tables, should be paginated. The only exemption is a page where a table or figure is placed in landscape format, since it would not fit in there in portrait format. In such a case, the page will still have a number. Nevertheless, it need not be typeset.
+
+No punctuation characters such as dash or period should appear in the page number. Also, note that the use of suffixes like 25a and 25b is not allowed. The pages preceding the main body of the report are and must be enumerated as follows:
+
+\vspace{12pt}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cc}
+Title Page        & 1(number does not appear) \\
+Table of Contents & 2 (or as necessary)      
+\end{tabular}
+\end{table}
+
+\subsection{Sectional Headings}
+
+The main body of the report has to be organized into three levels of sectional units. Hierarchically, we shall call them sections, subsections, and subsubsections. All headings must be in boldface letters. The sectional unit numbers do not have any period or punctuation after the section number, but there must be two spaces between the number and the title. For example, use “1 Introduction” instead of “1. Introduction” or “1.1 Prelimi-naries” instead of “1.1. Prelimi¬naries”. Also, any punctuation at the end of a heading must be omitted unless the heading itself is a full, proper sentence.
+
+\subsubsection{Section Headings}
+
+The section headings must be typeset with all letters in capitals and as follows:
+
+\begin{itemize}[leftmargin=1.4cm]
+    \item The font size must be 14 points.
+    \item They must be centered in the line, and they must start a new page.
+    \item They must be enumerated as 1, 2, etc.
+    \item There must be an extra line between the heading and the preceding text as well as the heading and the following text or subsection heading.
+\end{itemize}
+
+\subsubsection{Subsection Headings}
+
+Subsection (secondary) headings must be typeset with the initial letter of each word in capitals and as follows:
+
+\begin{itemize}[leftmargin=1.4cm]
+    \item The font size must be 12 points, and they must be typeset in boldface.
+    \item They should neither be centered nor indented. They do not need to start in a new page; however, widow headings should be prevented.
+    \item They must be enumerated as 1.1, 1.2, etc.; that is, their number should include the number of the section to which they belong, preceding the subsection number and separated by a period from it.
+    \item There must be an extra line between the heading and the preceding text as well as the heading and the following text or subsubsection heading. 
+\end{itemize}
+
+\subsubsection{Subsubsection Headings}
+
+Subsubsection (tertiary) headings must be typeset with only the first letter in capital and as follows:
+
+\begin{itemize}
+    \item The font size must be 12 points.
+    \item They should neither be centered nor indented. They do not need to start in a new page, either.
+    \item They must be enumerated as 1.1.1, 1.1.2, etc.
+    \item There must be an extra line between the heading and the preceding text. But there should not be an extra line before the following text. 
+\end{itemize}
+
+\subsection{Footnotes}
+
+Footnotes must be used sparingly, in fact, only if absolutely necessary. Footnotes references in the text should be given in Arabic numbers typeset as superscripts. The footnotes must be numbered sequentially on the page and the entire report. Footnotes must be written in 10 points and single-spaced. They must be placed at the bottom of the page where they are cited and under a left-justified line of length 5 cm.
+
+\subsection{Referencing}
+
+It is of utmost importance that the students refer the reader to the proper sources in the written or virtual literature to clearly distinguish between their accomplishments and information or findings obtained from other people’s work so as to prevent any suspicion of plagiarism. The citations in the text must be given in numbered format using the number of the reference. The reference number must be put into square brackets (e.g. [1]), and it must indicate the order of the first appearance in the text. More than one reference can be cited at the same location using several reference numbers or a range of them within the same square brackets, such as [2–4 , 5, 6–9].
+
+The reference numbers can be used in a sentence, or they may be appended to the sentence. For example: “In [8], it is shown that ...” or “It can be shown that ... holds [10].”
+
+The reference list at the end of the report should include all and only the references cited in the text in the same order. See Appendix A for an example listing of references.
+
+\subsection{Equations, Formulae, and Such}
+
+Relatively longer mathematical expressions and any mathematical object that is referred to in the following text must be typeset in a displayed format. That is, it must be typeset on a separate line and centered. There must be an extra line between such objects and the preceding and following text.
+
+All such displayed formulae must be identified by an Arabic number in parentheses, such as (2.1), (2.2), (2.3), etc., within each section in order of their appearance. The number must be placed as justified on the right margin. Here is an example:
+
+\begin{equation}
+    y(t)= \beta e^{\alpha T} u^p (t)
+\end{equation}
+
+\vspace{12pt}
+
+Such displayed material can be referred to in the text by using the number in parentheses. Use only the number without using an expression such as “Equation” or “Eqn.” preceding the number, that is, prefer “From (1.1), it follows that ...” instead of “From Equation (1.1), it follows that ...”. The only exception is where the number should start a sentence. For “Eqn. (1.1) can be rewritten as ...” is preferred instead of “(1.1) can be rewritten as ...”
+
+Mathematical formulae must be typeset according to a consistent math-style throughout the whole report. The standard style for mathematical expressions in scientific publications makes use of an italic typeface for variables in Latin characters and a non-italic typeface for mathematical signs ($+$, $-$, parentheses, etc.). Bold characters are usually reserved for vectors and matrices. In any case, the style used for in-text formulae should be the same as that displayed.
+
+\subsection{Tables and Figures}
+
+Tables and figures must be enumerated in the same way as the displayed equations within each section, such as “Table 2.1” or “Figure 3.4”. Note that in referring to or enumerating a table or figure we capitalize only the initial ‘T’ or ‘F’. Tables and figures and their captions must be placed as centered as shown in the examples on Page 19. The captions should be written as normal text. That is only the first letter of the caption must be in capitals. Like the sectional headings, no period should be at the end of a caption unless the caption is a full sentence. Note that figure captions are below the figures, and table captions are above the tables.
+
+Tables and figures should be placed into the text body at the nearest appropriate place after where they are mentioned in the text for the first time, and they should be numbered in the order they are mentioned in the text as shown in Figure \ref{fig:enter-label}.
+
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Resim1.png}
+    \caption{A linear time-invariant circuit}
+    \label{fig:enter-label}
+\end{figure}
+
+Note that all items, such as graphs, photographs, illustrations, etc., must be considered figures (or tables, whichever is appropriate). If really necessary (maybe in computer engineering projects), you can use one more (but only one) separate category, such as “Algorithm” or “Programme,” which must be enumerated and treated in the same way as figures and tables are done as shown in Table 4.1.
+
+\vspace{12pt}
+
+\begin{table}[h]
+\centering
+\caption{\centering Average detection delay and mean times between false alarms in detecting a change in the dynamics of a third-order system}
+\label{tab:beta}
+\begin{tabular}{|c|c|c|c|}
+\hline
+      & \begin{tabular}[c]{@{}c@{}}No Input\\ ($\beta$ = 100)\end{tabular} & \begin{tabular}[c]{@{}c@{}}White Input\\ ($\beta$ = 130)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Optimal off-line Input\\ ($\beta$ = 150)\end{tabular} \\ \hline
+ADD   & 863                                                          & 700                                                                             & 547                                                                        \\ \hline
+MTBFA & 18860                                                        & 17655                                                                           & 21866                                                                      \\ \hline
+\end{tabular}
+\end{table}
+
+For illustrations that may not be reproduced and, therefore, taken from other sources, references must be given in the caption, and written permissions from the copyright owner must be appended to the report.
+
+\section{MAIN FINDINGS}
+
+\subsection{Title Page}
+
+The title page must include the title of the project, the full names of team members (i.e., authors) with their departments, the project mentor(s), and the year and term when the technical report is submitted. An example of the title page can be found on Page 16. Follow this example carefully as to form and spacing.
+
+\subsection{Table of Contents}
+
+Every report must have a table of contents before the main text. All numbered sectional units must be included in the table of contents, as well as the unnumbered units, such as references, etc. The format of the table-of-contents page is shown in the example on Page 15. The style and formatting of this example must be strictly followed. Note that the “TABLE OF CONTENTS” is not listed in the table of contents.
+
+\subsection{Main Text}
+
+The main text should follow the table contents page(s). The sectional structure of the report may vary according to the subject of the project and methods used. Nevertheless, it is natural to start the report with a section called “Introduction” where the motivation for the problem tackled in the project and the background literature are given. Also, a report is expected the have “Conclusions” section at the end that explains to what extent the aim of the project is accomplished, the conclusions to be drawn from the work done, ideas about possible future work.
+
+It is strongly suggested that the students discuss the outline and organization of the report with their project supervisors before writing up it. Also, they are expected to prepare a draft well in advance of the submission so that it can be read and corrected before the final copy is produced. Further, they should take advantage of spell- and grammar-checking facilities in modern word processing tools.
+
+\subsection{Appendices}
+
+After the main body of the text there may be a last section that contains data, derivations or explanations which might be too bulky to be put into the main text. Examples of such material can be data sheets, questionnaire samples, screenshots, relatively complex charts, illustrations, maps, software listings etc.
+
+The appendices must be numbered separately in capital letters such as A, B, etc. Since each appendix is considered as a section, the numbering of subsectional units, figures, equations, etc. must be; accordingly, for example, “Subsection A.1”, “Table “A.4”, “Figure A.5” or “Equation (B.2)”. Each Appendix must have a title just as the sections in the main text. The heading should start with the word “appendix” such as “APPENDIX A: ...”.
+
+\subsection{References List}
+
+At the end of the report, the references cited in the text must be listed. The way to number and cite a reference within the text is described above in Section 2.7. The reference list must include \emph{all and only} the references cited in the order they are numbered. An example of such a list is on Page 20. Note that the example list includes many reference types such as books, journal articles, chapters in an edited book, theses, conference proceedings, web pages, etc. Study and follow these examples carefully as to the font styles and information ordering.
+
+\section{DISCUSSION}
+
+The pdf format of the technical report and all additional documents must be uploaded to the Learn system together with the presentation file and the simulation file before the due date.
+The reports must be computer typeset. Professional typesetting programs such as LaTeX are strongly recommended. Reports written in Microsoft Word are also acceptable.
+ 
+\section{CONCLUSION}
+
+The projects must be presented at the scheduled date and time in front of the intructors and the mentors of the Course. The schedule and place of presentations will be announced by each instructor who is responsible for the project. All team members are encouraged to take part in presenting the project material. Whether they do or not, in any case, they must be present at the presentation.
+
+PowerPoint presentations are preferred. Consult the course instructor and make the necessary arrangements if you will need extra equipment for your presentation such as video-player, whiteboard, etc.
+
+The duration of each presentation will be announced at the beginning of the project. Each project team is responsible for the presentation of their material. This time also covers answering possible questions that the audience might raise to the team and a demonstration of the product obtained as a result of the project. It is therefore important that the timing of all these activities is planned by the presenters so as to complete all of them in a given period of time. Prepare all setup necessary for the demonstration well in advance of your presentation and check thrice that everything works well. Note that the timing will be even tighter if the demonstration involves equipment that cannot be brought into the presentation hall and the audience has to go to a laboratory or somewhere else to see it.
+
+\begin{appendix}
+    \titleformat{\section}[block]{\bfseries\fontsize{14}{16}\selectfont\centering}{\appendixname}{0.5em}{}
+
+    \section*{APPENDIX A: EXAMPLE PAGES}
+    \addcontentsline{toc}{section}{APPENDIX A: EXAMPLE PAGES}
+    This appendix shows the format of the title page, table of contents, figures, tables, and list of references in examples. Study and follow them carefully to generate these pages in your report.
+
+    Note that this booklet (except its own title page) has been typeset in the format required for the project reports. So, you can take this booklet as an example as far as the page setup, font style, size, etc., are concerned. You can also consult your project mentor or course instructor for questions you might have.
+    
+\end{appendix}
+
+\printbibliography
+\end{document}
